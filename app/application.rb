@@ -1,5 +1,7 @@
 class Application
 
+  @@items = []
+  
   def call(env)
     resp = Rack::Response.new
     req = Rack::Request.new(env)
@@ -7,7 +9,7 @@ class Application
     if req.path.match(/items/)
  
       item_name = req.path.split("/items/").last
-      song = @@songs.find{|i| i.title == item_name}
+      item = @@items.find{|i| i.title == item_name}
  
       resp.write song.artist
     else
