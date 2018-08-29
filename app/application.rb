@@ -11,7 +11,7 @@ class Application
  
       resp.write song.artist
     else
-      resp.
+      resp.status = 404
     end
  
     resp.finish
